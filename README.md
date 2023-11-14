@@ -64,10 +64,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 flatpak install --user --assumeyes flathub net.ankiweb.Anki
-flatpak install --user --assumeyes flathub com.mattjakeman.ExtensionManager
 flatpak install --user --assumeyes flathub com.discordapp.Discord
-flatpak install --user --assumeyes flathub io.missioncenter.MissionCenter
-flatpak install --user --assumeyes flathub com.raggesilver.BlackBox
 flatpak install --user --assumeyes flathub org.mozilla.Thunderbird
 flatpak install --user --assumeyes flathub ch.protonmail.protonmail-bridge
 ```
