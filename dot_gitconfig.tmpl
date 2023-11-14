@@ -1,0 +1,105 @@
+[alias]
+    backport = "cherry-pick -x"
+    blame = "-w -M"
+    comma = "commit --amend"
+    force-push = "push --force-with-lease"
+    get = "clone --recursive"
+    mr = !"fun() { git fetch origin merge-requests/$1/head:mr-$1; git checkout mr-$1; }; fun"
+    pr = !"fun() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; fun"
+    publish = !"git pull && git push"
+    rb = "rebase origin/head"
+    rebase-upstream = !"fun() { git branch --set-upstream-to=$1; }; fun"
+    recommit = !"git commit -eF $(git rev-parse --git-dir)/COMMIT_EDITMSG"
+    reset-mr = "reset --hard FETCH_HEAD"
+    reset-pr = "reset --hard FETCH_HEAD"
+    search = !"fun() { git log -S $1; }; fun"
+    search-commit = !"fun() { git log --grep $1; }; fun"
+    search-diff = !"fun() { git log -S $1 -p $2; }; fun"
+    search-first = !"fun() { git log -S $1 -p --reverse $2; }; fun"
+    search-regex = !"fun() { git log -G $1; }; fun"
+    uncommit = "reset --soft HEAD"
+    upgrade = !"git pull && git submodule update --init --recursive"
+
+    ; Generic trailer aliases
+    trailer-add = "!f(){ GIT_EDITOR=\"git interpret-trailers --trailer='$1: $2' --in-place\" git commit --amend; }; f"
+    trailer-add-me = "!f() { git trailer-add \"$1\" \"$(git config user.name) <$(git config user.email)>\"; }; f"
+
+    acked-by = "!git trailer-add Acked-by"
+    acked-by-me = "!git trailer-add-me Acked-by"
+    co-authored-by = "!git trailer-add Co-authored-by"
+    co-authored-by-me = "!git trailer-add-me Co-authored-by"
+    reported-by = "!git trailer-add Reported-by"
+    reported-by-me = "!git trailer-add-me Reported-by"
+    reviewed-by = "!git trailer-add Reviewed-by"
+    reviewed-by-me = "!git trailer-add-me Reviewed-by"
+    signed-off-by = "!git trailer-add Signed-off-by"
+    signed-off-by-me = "!git trailer-add-me Signed-off-by"
+    tested-by = "!git trailer-add Tested-by"
+    tested-by-me = "!git trailer-add-me Tested-by"
+[branch]
+    autosetuprebase = "always"
+[color]
+    branch = true
+    diff = true
+    status = true
+[commit]
+    gpgSign = true
+    verbose = true
+[core]
+    attributesFile = "~/.gitattributes"
+    excludesFile = "~/.gitignore"
+[diff]
+    colorMoved = "default"
+    compactionHeuristic = true
+    renames = true
+[format]
+    signoff = true
+[github]
+    user = "aaron-dodd"
+{{ if .git.sign.force -}}
+[gpg]
+    format = "{{ .git.sign.format }}"
+[gpg "ssh"]
+    program = "/opt/1Password/op-ssh-sign"
+    allowedSignersFile = "~/.config/git/allowed_signers"
+{{ end -}}
+[include]
+    path = "~/.gitconfig.local"
+[init]
+    defaultBranch = "main"
+[interactive]
+    singlekey = true
+[merge]
+    conflictStyle = "zdiff3"
+[pull]
+    autostash = true
+    rebase = true
+    twohead = "ort"
+[push]
+    autoSetupremote = true
+    default = "simple"
+    recurseSubmodules = "on-demand"
+[rebase]
+    autoSquash = true
+    autoStash = true
+    stat = true
+    updateRefs = true
+[rerere]
+    autoUpdate = true
+    enabled = true
+[tag]
+    gpgSign = true
+[user]
+    name = {{ .fullname -}}
+{{ if .work_device }}
+    email = {{ .work.email -}}
+{{ else }}
+    email = {{ .personal.email -}}
+{{ end -}}
+{{if .git.sign.force -}}
+{{ if .work_device }}
+    signingkey = {{ .work.signingkey -}}
+{{ else }}
+    signingkey = {{ .personal.signingkey -}}
+{{ end }}
+{{ end }}
