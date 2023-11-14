@@ -17,7 +17,7 @@ sudo zypper dup
 ```bash
 sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
 sudo zypper ar https://downloads.1password.com/linux/rpm/stable/x86_64 1password
-sudo zypper install 1password 1password-cli
+sudo zypper in 1password 1password-cli
 ```
 
 - Get codecs:
@@ -27,13 +27,19 @@ sudo zypper in opi
 opi codecs
 ```
 
+- Get fonts
+
+```bash
+suod zypper in google-noto-sans-cjk-fonts
+```
+
 - Get vivaldi
 
 ```bash
 opi vivaldi
 ```
 
-- Get jetbrains
+- Get JetBrains
 
 ```bash
 mkdir "$HOME/AppImages"
