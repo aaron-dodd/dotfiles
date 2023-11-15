@@ -74,3 +74,33 @@ flatpak install --user --assumeyes flathub com.discordapp.Discord
 flatpak install --user --assumeyes flathub org.mozilla.Thunderbird
 flatpak install --user --assumeyes flathub ch.protonmail.protonmail-bridge
 ```
+
+## Chezmoi guide
+
+On linux, you can simply run:
+
+```bash
+chezmoi init aaron-dodd --ssh
+```
+
+On windows or WSL you might have to do the following:
+
+```bash
+cd ~
+mkdir -p ~/.local/share/chezmoi
+git clone https://github.com/aaron-dodd/dotfiles ~/.local/share/chezmoi
+```
+
+Enter into wsl
+
+```bash
+wsl
+```
+
+Run chezmoi from the command line:
+
+```bash
+chezmoi -S .local/share/chezmoi -D . init
+chezmoi -S .local/share/chezmoi -D . apply
+```
+
