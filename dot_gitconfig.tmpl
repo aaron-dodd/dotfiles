@@ -60,7 +60,7 @@
 [gpg]
     format = "{{ .git.sign.format }}"
 [gpg "ssh"]
-{{- if .use_onepassword }}
+{{- if .git.use_onepassword_ssh }}
     program = "/opt/1Password/op-ssh-sign"
 {{- end }}
     allowedSignersFile = "~/.config/git/allowed_signers"
