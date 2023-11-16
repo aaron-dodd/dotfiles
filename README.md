@@ -17,6 +17,10 @@ sudo zypper dup
 ```bash
 sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
 sudo zypper ar https://downloads.1password.com/linux/rpm/stable/x86_64 1password
+
+# Find 1password repos number and enable autorefresh
+sudo zypper repos
+sudo zypper mr -f 1
 sudo zypper in 1password 1password-cli
 ```
 
@@ -30,7 +34,7 @@ opi codecs
 - Get fonts
 
 ```bash
-suod zypper in google-noto-sans-cjk-fonts
+sudo zypper in google-noto-sans-cjk-fonts
 ```
 
 - Get vivaldi
@@ -39,7 +43,16 @@ suod zypper in google-noto-sans-cjk-fonts
 opi vivaldi
 ```
 
-- Get JetBrains
+- Get Visual Studio Code
+
+```bash
+opi vscode
+
+# Get a vscode profile
+xdg-open https://vscode.dev/profile/github/c761b7738e9a7b02286d6d94cb2d1ecd
+```
+
+- Get JetBrains Toolbox
 
 ```bash
 mkdir "$HOME/AppImages"
