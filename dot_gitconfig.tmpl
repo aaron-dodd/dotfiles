@@ -1,3 +1,7 @@
+[user]
+    name = {{ .user.fullname }}
+    email = {{ .user.email }}
+    signingkey = {{ .user.signingkey }}
 [alias]
     backport = "cherry-pick -x"
     blame = "-w -M"
@@ -43,11 +47,11 @@
     diff = true
     status = true
 [commit]
-    gpgSign = true
+    gpgSign = {{ .git.sign.force }}
     verbose = true
 [core]
-    attributesFile = "~/.gitattributes"
-    excludesFile = "~/.gitignore"
+    attributesFile = "{{ .chezmoi.homeDir }}/.gitattributes"
+    excludesFile = "{{ .chezmoi.homeDir }}/.gitignore"
 [diff]
     colorMoved = "default"
     compactionHeuristic = true
@@ -55,18 +59,15 @@
 [format]
     signoff = true
 [github]
-    user = "aaron-dodd"
-{{ if .git.sign.force -}}
+    user = {{ .git.github.username }}
 [gpg]
-    format = "{{ .git.sign.format }}"
+    format = {{ .git.sign.format }}
+{{ if eq .git.sign.format "ssh" -}}
 [gpg "ssh"]
-{{- if .git.use_onepassword_ssh }}
-    program = "/opt/1Password/op-ssh-sign"
-{{- end }}
-    allowedSignersFile = "~/.config/git/allowed_signers"
+    allowedSignersFile = "{{ .chezmoi.homeDir }}/.config/git/allowed_signers"
 {{ end -}}
 [include]
-    path = "~/.gitconfig.local"
+    path = "{{ .chezmoi.homeDir }}/.gitconfig.local"
 [init]
     defaultBranch = "main"
 [interactive]
@@ -90,18 +91,4 @@
     autoUpdate = true
     enabled = true
 [tag]
-    gpgSign = true
-[user]
-    name = {{ .fullname -}}
-{{ if .work_device }}
-    email = {{ .work.email -}}
-{{ else }}
-    email = {{ .personal.email -}}
-{{ end -}}
-{{if .git.sign.force -}}
-{{ if .work_device }}
-    signingkey = {{ .work.signingkey -}}
-{{ else }}
-    signingkey = {{ .personal.signingkey -}}
-{{ end }}
-{{ end }}
+    gpgSign = {{ .git.sign.force }}

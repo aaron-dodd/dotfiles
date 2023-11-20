@@ -1,5 +1,4 @@
+{{ .user.email }} {{ .user.signingkey }}
 {{ if .work_device -}}
-{{ .work.email }} {{ .work.signingkey -}}
 {{ else -}}
-{{ .personal.email }} {{ .personal.signingkey -}}
-{{ end }}
+{{ end -}}
