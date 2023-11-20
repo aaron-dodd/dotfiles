@@ -1,81 +1,71 @@
-# OpenSUSE Tumbleweed setup
+# Fedora setup
 ## Installation steps
 
- - Use the YaST installer. It's excellent.
+- Use the fedora installer.
 
 ## Post installation
 
 - Get latest updates:
 
 ```bash
-sudo zypper ref
-sudo zypper dup
+sudo dnf upgrade --refresh
 ```
 
-- Get 1password:
+- Get the 1password RPM from the website and then install the corresponding cli tooling:
 
 ```bash
-sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
-sudo zypper ar https://downloads.1password.com/linux/rpm/stable/x86_64 1password
-
-# Find 1password repos number and enable autorefresh
-sudo zypper repos
-sudo zypper mr -f 1
-sudo zypper in 1password 1password-cli
+sudo dnf install 1password 1password-cli
 ```
 
 - Get codecs:
 
 ```bash
-sudo zypper in opi
-opi codecs
+# Get repositories
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# Install codecs
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+sudo dnf groupupdate sound-and-video
+
+# Intel
+sudo dnf install intel-media-driver
+sudo dnf install libva-intel-driver
+
+# AMD
+sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+sudo dnf swap mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686
+sudo dnf swap mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
+
+# NVIDIA
+sudo dnf install nvidia-vaapi-driver
+
+# DVD
+sudo dnf install rpmfusion-free-release-tainted
+sudo dnf install libdvdcss
+
+# Misc
+sudo dnf install rpmfusion-nonfree-release-tainted
+sudo dnf --repo=rpmfusion-nonfree-tainted install "*-firmware"
 ```
 
 - Get fonts
 
 ```bash
-sudo zypper in google-noto-sans-cjk-fonts
+sudo dnf install google-noto-sans-cjk-fonts
 ```
 
-- Get vivaldi
-
-```bash
-opi vivaldi
-```
-
+- Get the Vivaldi RPM from the website and install it.
 - Get Visual Studio Code
 
 ```bash
-opi vscode
-
 # Get a vscode profile
 xdg-open https://vscode.dev/profile/github/c761b7738e9a7b02286d6d94cb2d1ecd
 ```
 
-- Get JetBrains Toolbox
-
-```bash
-mkdir "$HOME/AppImages"
-pushd "$HOME/AppImages"
-
-# Get the json with latest releases
-curl -sSfL -o releases.json "https://data.services.jetbrains.com/products/releases?code=TBA&latest=true&type=release"
-
-# Extract information
-BUILD_VERSION=$(jq -r '.TBA[0].build' ./releases.json)
-DOWNLOAD_LINK=$(jq -r '.TBA[0].downloads.linux.link' ./releases.json)
-CHECKSUM_LINK=$(jq -r '.TBA[0].downloads.linux.checksumLink' ./releases.json)
-
-# Install
-curl -sSfL -O "${DOWNLOAD_LINK}"
-curl -sSfL "${CHECKSUM_LINK}" | sha256sum -c
-tar zxf jetbrains-toolbox-"${BUILD_VERSION}".tar.gz
-
-# Launch
-./jetbrains-toolbox-"${BUILD_VERSION}"/jetbrains-toolbox
-popd
-```
-
+- Get JetBrains Toolbox from the website as an AppImage and install it.
 - Get flatpaks
 
 ```bash
@@ -89,6 +79,17 @@ flatpak install --user --assumeyes flathub ch.protonmail.protonmail-bridge
 ```
 
 ## Chezmoi guide
+### Installation
+
+To install chezmoi on linux, use the following command:
+
+```bash
+sh -c "$(curl -fsLS get.chezmoi.io)"
+```
+
+On windows you have to do it yourself. Consult the manual on https://chezmoi.io
+
+### Usage
 
 On linux, you can simply run:
 
@@ -96,7 +97,7 @@ On linux, you can simply run:
 chezmoi init aaron-dodd --ssh
 ```
 
-On windows or WSL you might have to do the following:
+On windows or the Windows Subsystem for Linux (WSL) you might have to do the following:
 
 ```bash
 cd ~
@@ -104,7 +105,7 @@ mkdir -p ~/.local/share/chezmoi
 git clone https://github.com/aaron-dodd/dotfiles ~/.local/share/chezmoi
 ```
 
-Enter into wsl
+Enter into WSL:
 
 ```bash
 wsl
@@ -116,4 +117,3 @@ Run chezmoi from the command line:
 chezmoi -S .local/share/chezmoi -D . init
 chezmoi -S .local/share/chezmoi -D . apply
 ```
-
