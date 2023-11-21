@@ -5,16 +5,24 @@
 
 ## Post installation
 
+Optionally, run `scripts/setup.sh`.
+
 - Get latest updates:
 
 ```bash
-sudo dnf upgrade --refresh
+sudo dnf upgrade --refresh --assumeyes
 ```
 
-- Get the 1password RPM from the website and then install the corresponding cli tooling:
+- Get keepassxc:
 
 ```bash
-sudo dnf install 1password 1password-cli
+sudo dnf install --assumeyes keepassxc
+```
+
+- Get chezmoi:
+
+```bash
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --ssh aaron-dodd
 ```
 
 - Get codecs:
