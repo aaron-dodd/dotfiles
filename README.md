@@ -59,6 +59,7 @@ sudo dnf install rpmfusion-nonfree-release-tainted
 sudo dnf --repo=rpmfusion-nonfree-tainted install "*-firmware"
 ```
 
+- Firefox tweak: Enter `about:config` and set `media.ffmpeg.vaapi.enabled` to `true`.
 - Get fonts
 
 ```bash
