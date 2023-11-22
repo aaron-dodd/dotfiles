@@ -1,79 +1,45 @@
-# Fedora setup
+# openSUSE Tumbleweed setup
 ## Installation steps
 
-- Use the fedora installer.
+- Use the openSUSE YaST installer. It's really good.
 
 ## Post installation
-
-Optionally, run `scripts/setup.sh`.
 
 - Get latest updates:
 
 ```bash
-sudo dnf upgrade --refresh --assumeyes
+sudo zypper ref
+sudo zypper dup
 ```
 
-- Get keepassxc:
+- Install applications using zypper:
 
 ```bash
-sudo dnf install --assumeyes keepassxc
+sudo zypper in chezmoi git google-noto-sans-cjk-fonts keepassxc opi syncthing
 ```
 
-- Get chezmoi:
+- Activate syncthing:
 
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --ssh aaron-dodd
+systemctl enable --user syncthing.service
+systemctl start --user syncthing.service
 ```
 
-- Get codecs:
+- Install dotfiles using chezmoi:
 
 ```bash
-# Get repositories
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+chezmoi init --ssh aaron-dodd
+```
 
-# Install codecs
-sudo dnf swap ffmpeg-free ffmpeg --allowerasing
-sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-sudo dnf groupupdate sound-and-video
+- Install applications using opi:
 
-# Intel
-sudo dnf install intel-media-driver
-sudo dnf install libva-intel-driver
-
-# AMD
-sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
-sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
-sudo dnf swap mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686
-sudo dnf swap mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
-
-# NVIDIA
-sudo dnf install nvidia-vaapi-driver
-
-# DVD
-sudo dnf install rpmfusion-free-release-tainted
-sudo dnf install libdvdcss
-
-# Misc
-sudo dnf install rpmfusion-nonfree-release-tainted
-sudo dnf --repo=rpmfusion-nonfree-tainted install "*-firmware"
+```bash
+opi codecs
+opi vivaldi
+opi vscode
 ```
 
 - Firefox tweak: Enter `about:config` and set `media.ffmpeg.vaapi.enabled` to `true`.
-- Get fonts
-
-```bash
-sudo dnf install google-noto-sans-cjk-fonts
-```
-
-- Get the Vivaldi RPM from the website and install it.
-- Get Visual Studio Code
-
-```bash
-# Get a vscode profile
-xdg-open https://vscode.dev/profile/github/c761b7738e9a7b02286d6d94cb2d1ecd
-```
-
 - Get JetBrains Toolbox from the website as an AppImage and install it.
 - Get flatpaks
 
@@ -83,8 +49,6 @@ flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/fl
 
 flatpak install --user --assumeyes flathub net.ankiweb.Anki
 flatpak install --user --assumeyes flathub com.discordapp.Discord
-flatpak install --user --assumeyes flathub org.mozilla.Thunderbird
-flatpak install --user --assumeyes flathub ch.protonmail.protonmail-bridge
 ```
 
 ## Chezmoi guide
