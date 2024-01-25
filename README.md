@@ -1,37 +1,47 @@
-# openSUSE Tumbleweed setup
-## Installation steps
+# Machine Setup Instructions
+## Microsoft Windows
 
-- Use the openSUSE YaST installer. It's really good.
+1. Get windows store and additional components if they don't already exist:
 
-## Post installation
+```bash
+wsreset -i
+```
 
-- Get latest updates:
+2. Get chocolatey from this link: https://community.chocolatey.org
+3. Run the following command:
+
+```bash
+choco install anki chocolateygui chezmoi discord es everything git microsoft-windows-terminal powertoys sysinternals tailscale vivaldi
+```
+
+4. Get 1password from this link: https://1password.com
+5. Get fluent search from this link: https://fluentsearch.net
+6. Install Hyper-V
+7. Install WSL2
+
+## openSUSE Tumbleweed
+
+1. Use the openSUSE YaST installer
+2. Get latest updates:
 
 ```bash
 sudo zypper ref
 sudo zypper dup
 ```
 
-- Install applications using zypper:
+3. Install applications using zypper:
 
 ```bash
 sudo zypper in chezmoi git google-noto-sans-cjk-fonts keepassxc opi syncthing
 ```
 
-- Activate syncthing:
-
-```bash
-systemctl enable --user syncthing.service
-systemctl start --user syncthing.service
-```
-
-- Install dotfiles using chezmoi:
+4. Install dotfiles using chezmoi:
 
 ```bash
 chezmoi init --ssh aaron-dodd
 ```
 
-- Install applications using opi:
+5. Install applications using opi:
 
 ```bash
 opi codecs
@@ -39,7 +49,6 @@ opi vivaldi
 opi vscode
 ```
 
-- Firefox tweak: Enter `about:config` and set `media.ffmpeg.vaapi.enabled` to `true`.
 - Get JetBrains Toolbox from the website as an AppImage and install it.
 - Get flatpaks
 
