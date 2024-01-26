@@ -11,7 +11,7 @@ wsreset -i
 3. Run the following command:
 
 ```bash
-choco install anki chocolateygui chezmoi discord es everything git jetbrainstoolbox microsoft-windows-terminal powertoys sysinternals tailscale virtualbox vivaldi wiztree
+choco install anki bruno chocolateygui chezmoi discord es everything git jetbrainstoolbox microsoft-windows-terminal powertoys sysinternals tailscale virtualbox vivaldi wiztree
 ```
 
 4. Get 1password from this link: https://1password.com
