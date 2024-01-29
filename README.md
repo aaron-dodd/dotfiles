@@ -32,7 +32,7 @@ manage-bde -protectors -add c: -TPMAndPIN
 6. Run the following command:
 
 ```bash
-choco install -y anki bruno chocolateygui chezmoi discord docker-desktop es everything git gitkraken jetbrainstoolbox microsoft-windows-terminal oh-my-posh powertoys sumatrapdf sysinternals tailscale virtualbox vivaldi vscode wiztree
+choco install -y 7zip anki bruno chocolateygui chezmoi discord docker-desktop es everything git gitkraken jetbrainstoolbox microsoft-windows-terminal oh-my-posh powertoys sumatrapdf sysinternals tailscale virtualbox vivaldi vscode wiztree
 ```
 
 7. Get 1password from this link: https://1password.com
