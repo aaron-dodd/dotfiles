@@ -7,18 +7,9 @@
 wsreset -i
 ```
 
-2. Get chocolatey from this link: https://community.chocolatey.org
-3. Run the following command:
-
-```bash
-choco install -y anki bruno chocolateygui chezmoi discord es everything git gitkraken jetbrainstoolbox microsoft-windows-terminal powertoys sumatrapdf sysinternals tailscale virtualbox vivaldi vscode wiztree
-```
-
-4. Get 1password from this link: https://1password.com
-5. Get fluent search from this link: https://fluentsearch.net
-6. Install Hyper-V
-7. Install WSL2
-8. Enable bitlocker
+2. Install Hyper-V
+3. Install WSL2
+4. Enable bitlocker
 
 Go to "Manage bitlocker" and enable it on `C:`.
 
@@ -37,6 +28,14 @@ Set the PIN using the following command:
 ```bash
 manage-bde -protectors -add c: -TPMAndPIN
 ```
+5. Get chocolatey from this link: https://community.chocolatey.org
+6. Run the following command:
+
+```bash
+choco install -y anki bruno chocolateygui chezmoi discord docker-desktop es everything git gitkraken jetbrainstoolbox microsoft-windows-terminal oh-my-posh powertoys sumatrapdf sysinternals tailscale virtualbox vivaldi vscode wiztree
+```
+
+7. Get 1password from this link: https://1password.com
 
 ## openSUSE Tumbleweed
 
