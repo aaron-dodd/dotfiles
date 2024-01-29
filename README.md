@@ -18,6 +18,25 @@ choco install -y anki bruno chocolateygui chezmoi discord es everything git gitk
 5. Get fluent search from this link: https://fluentsearch.net
 6. Install Hyper-V
 7. Install WSL2
+8. Enable bitlocker
+
+Go to "Manage bitlocker" and enable it on `C:`.
+
+Press `Win + R` and go to `gpedit.msc`.
+
+Navigate to `Administrative Templates > Windows Components > Bitlocker Drive Encryption > Operating System Drives`.
+
+Enable `Allow Secure Boot for integrity validation`.
+
+Enable `Require additional authentication at startup`.
+
+In the options for `Configure TPM startup PIN`, select `Require`.
+
+Set the PIN using the following command:
+
+```bash
+manage-bde -protectors -add c: -TPMAndPIN
+```
 
 ## openSUSE Tumbleweed
 
