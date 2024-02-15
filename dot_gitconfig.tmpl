@@ -4,7 +4,7 @@
     signingkey = {{ .user.signingkey }}
 [alias]
     backport = "cherry-pick -x"
-    blame = "-w -M"
+    blame = "-w -C -C -C"
     comma = "commit --amend"
     force-push = "push --force-with-lease"
     get = "clone --recursive"
