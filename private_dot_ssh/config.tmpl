@@ -1,7 +1,2 @@
 AddKeysToAgent yes
 
-{{- if .ssh.onepassword }}
-Host *
-	IdentityAgent ~/.1password/agent.sock
-{{ end -}}
-
