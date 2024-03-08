@@ -1,34 +1,39 @@
 # Machine Setup Instructions
 ## Microsoft Windows
 
-1. Get windows store and additional components if they don't already exist:
+1. Install as many Windows Updates as possible and reboot as needed.
+2. Open Microsoft Store and download all updates.
+3. Install Hyper-V using Windows Features and reboot as needed.
+3. Install WSL2 using the following commands and reboot as needed:
 
-```bash
-wsreset -i
+```pwsh
+wsl --install Ubuntu
 ```
 
-2. Install Hyper-V
-3. Install WSL2
-4. Enable bitlocker
+4. Install scoop using the following commands:
 
-Go to "Manage bitlocker" and enable it on `C:`.
 
-Press `Win + R` and go to `gpedit.msc`.
-
-Navigate to `Administrative Templates > Windows Components > Bitlocker Drive Encryption > Operating System Drives`.
-
-Enable `Allow Secure Boot for integrity validation`.
-
-Enable `Require additional authentication at startup`.
-
-In the options for `Configure TPM startup PIN`, select `Require`.
-
-Set the PIN using the following command:
-
-```bash
-manage-bde -protectors -add c: -TPMAndPIN
+```pwsh
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
-5. Get chocolatey from this link: https://community.chocolatey.org
+
+5. Install the following scoop software using the command:
+
+```pwsh
+scoop install chezmoi, git, 7zip
+scoop bucket add extras
+scoop install vcredist, winget
+```
+
+6. Get the following software using the following winget command:
+
+```pwsh
+winget install Docker.DockerDesktop
+winget install Microsoft.PowerToys
+winget install "Sysinternals Suite"
+```
+
 6. Run the following command:
 
 ```bash
