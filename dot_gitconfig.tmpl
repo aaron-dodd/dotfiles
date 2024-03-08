@@ -66,7 +66,12 @@
 [gpg "ssh"]
     allowedSignersFile = "{{ .chezmoi.homeDir }}/.config/git/allowed_signers"
 {{- if .ssh.onepassword }}
+{{- if eq .chezmoi.os "linux" }}
     program = "/opt/1Password/op-ssh-sign"
+{{ end -}}
+{{- if eq .chezmoi.os "windows" }}
+    program = "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
+{{ end -}}
 {{ end -}}
 {{ end -}}
 [include]
