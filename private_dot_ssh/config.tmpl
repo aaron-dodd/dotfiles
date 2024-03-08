@@ -1,6 +1,6 @@
 AddKeysToAgent yes
 
-{{- if .ssh.onepassword }}
+{{- if and (.ssh.onepassword) (eq .chezmoi.os "linux") }}
 Host *
 	IdentityAgent ~/.1password/agent.sock
 {{ end -}}
