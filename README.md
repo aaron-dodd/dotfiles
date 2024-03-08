@@ -29,18 +29,11 @@ scoop install vcredist, winget
 6. Get the following software using the following winget command:
 
 ```pwsh
-winget install Docker.DockerDesktop
-winget install Microsoft.PowerToys
-winget install "Sysinternals Suite"
+winget install `
+    AgileBits.1Password AgileBits.1Password.CLI Axosoft.GitKraken `
+    Docker.DockerDesktop JetBrains.Toolbox Microsoft.PowerToys `
+    Microsoft.VisualStudioCode "Sysinternals Suite"
 ```
-
-6. Run the following command:
-
-```bash
-choco install -y 7zip anki bruno chocolateygui chezmoi discord docker-desktop es everything git gitkraken jetbrainstoolbox microsoft-windows-terminal oh-my-posh powertoys sumatrapdf sysinternals tailscale virtualbox vivaldi vscode wiztree
-```
-
-7. Get 1password from this link: https://1password.com
 
 ## openSUSE Tumbleweed
 
