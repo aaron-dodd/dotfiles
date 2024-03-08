@@ -4,13 +4,13 @@
 1. Install as many Windows Updates as possible and reboot as needed.
 2. Open Microsoft Store and download all updates.
 3. Install Hyper-V using Windows Features and reboot as needed.
-3. Install WSL2 using the following commands and reboot as needed:
+4. Install WSL2 using the following commands and reboot as needed:
 
 ```pwsh
 wsl --install Ubuntu
 ```
 
-4. Install scoop using the following commands:
+5. Install scoop using the following commands:
 
 
 ```pwsh
@@ -18,7 +18,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
 
-5. Install the following scoop software using the command:
+6. Install the following scoop software using the command:
 
 ```pwsh
 scoop install chezmoi, git, 7zip
@@ -26,13 +26,19 @@ scoop bucket add extras
 scoop install vcredist, winget
 ```
 
-6. Get the following software using the following winget command:
+7. Get the following software using the following winget command:
 
 ```pwsh
 winget install `
     AgileBits.1Password AgileBits.1Password.CLI Axosoft.GitKraken `
     Docker.DockerDesktop JetBrains.Toolbox Microsoft.PowerToys `
-    Microsoft.VisualStudioCode "Sysinternals Suite"
+    Microsoft.VisualStudioCode "Sysinternals Suite" Vivaldi.Vivaldi
+```
+
+8. Configure Git SSH access with the following command (do this as an administrator):
+
+```pwsh
+setx /M GIT_SSH C:\Windows\System32\OpenSSH\ssh.exe
 ```
 
 ## openSUSE Tumbleweed
