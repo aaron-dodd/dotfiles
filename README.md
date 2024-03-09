@@ -30,9 +30,18 @@ scoop install vcredist, winget
 
 ```pwsh
 winget install `
-    AgileBits.1Password AgileBits.1Password.CLI Axosoft.GitKraken `
-    Docker.DockerDesktop JetBrains.Toolbox Microsoft.PowerToys `
-    Microsoft.VisualStudioCode "Sysinternals Suite" Vivaldi.Vivaldi
+    "Sysinternals Suite" `
+    AgileBits.1Password `
+    AgileBits.1Password.CLI `
+    Axosoft.GitKraken `
+    Discord.Discord `
+    Docker.DockerDesktop `
+    JetBrains.Toolbox `
+    Microsoft.PowerToys `
+    Microsoft.VisualStudioCode `
+    Stremio `
+    Valve.Steam `
+    Vivaldi.Vivaldi
 ```
 
 8. Configure Git SSH access with the following command (do this as an administrator):
@@ -40,6 +49,8 @@ winget install `
 ```pwsh
 setx /M GIT_SSH C:\Windows\System32\OpenSSH\ssh.exe
 ```
+
+9. Login to services.
 
 ## openSUSE Tumbleweed
 
