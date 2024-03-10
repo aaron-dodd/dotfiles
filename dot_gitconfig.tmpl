@@ -53,6 +53,7 @@
     attributesFile = "{{ .chezmoi.homeDir }}/.gitattributes"
     excludesFile = "{{ .chezmoi.homeDir }}/.gitignore"
 [diff]
+    algorithm = "histogram"
     colorMoved = "default"
     compactionHeuristic = true
     renames = true
@@ -74,6 +75,8 @@
 {{ end -}}
 {{ end -}}
 {{ end -}}
+[help]
+    autocorrect = "10"
 [include]
     path = "{{ .chezmoi.homeDir }}/.gitconfig.local"
 [init]
@@ -88,7 +91,7 @@
     twohead = "ort"
 [push]
     autoSetupremote = true
-    default = "simple"
+    default = "current"
     recurseSubmodules = "on-demand"
 [rebase]
     autoSquash = true
@@ -100,3 +103,5 @@
     enabled = true
 [tag]
     gpgSign = {{ .git.sign.force }}
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
