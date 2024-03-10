@@ -40,6 +40,7 @@ winget install `
     "Sysinternals Suite" `
     AgileBits.1Password `
     AgileBits.1Password.CLI `
+    Anki.Anki `
     Axosoft.GitKraken `
     Discord.Discord `
     Docker.DockerDesktop `
