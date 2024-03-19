@@ -47,8 +47,7 @@ winget install `
     Microsoft.PowerToys `
     Microsoft.VisualStudioCode `
     Stremio `
-    Valve.Steam `
-    Vivaldi.Vivaldi
+    Valve.Steam
 ```
 
 9. Configure Git SSH access with the following command (do this as an
