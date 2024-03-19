@@ -19,7 +19,6 @@ wsl --install Ubuntu
 
 6. Install scoop using the following commands:
 
-
 ```pwsh
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
@@ -28,7 +27,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 7. Install the following scoop software using the command:
 
 ```pwsh
-scoop install chezmoi, git, 7zip
+scoop install chezmoi, git, oh-my-posh, 7zip
 scoop bucket add extras
 scoop install vcredist, winget
 ```
