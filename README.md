@@ -41,12 +41,15 @@ winget install `
     AgileBits.1Password.CLI `
     Anki.Anki `
     Axosoft.GitKraken `
+    calibre.calibre `
     Discord.Discord `
     Docker.DockerDesktop `
     JetBrains.Toolbox `
     Microsoft.PowerToys `
     Microsoft.VisualStudioCode `
+    mIRC.mIRC `
     Stremio `
+    SumatraPDF.SumatraPDF `
     Valve.Steam
 ```
 
