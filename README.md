@@ -29,7 +29,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```pwsh
 scoop install chezmoi, git, oh-my-posh, 7zip
 scoop bucket add extras
-scoop install vcredist, winget
+scoop install cheat-engine, vcredist, winget
 ```
 
 8. Get the following software using the following winget command:
@@ -48,8 +48,11 @@ winget install `
     Microsoft.PowerToys `
     Microsoft.VisualStudioCode `
     mIRC.mIRC `
+    Proton.ProtonDrive `
+    Proton.ProtonMail `
     Stremio `
     SumatraPDF.SumatraPDF `
+    tailscale.tailscale `
     Valve.Steam
 ```
 
