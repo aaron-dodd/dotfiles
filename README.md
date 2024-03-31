@@ -51,6 +51,7 @@ winget install `
    Microsoft.DotNet.SDK.8 `
    Microsoft.PowerToys `
    Microsoft.VisualStudioCode `
+   MiKTeX.MiKTeX `
    mIRC.mIRC `
    Proton.ProtonDrive `
    Stremio `
