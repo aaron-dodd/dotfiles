@@ -36,24 +36,27 @@ scoop install cheat-engine, vcredist, winget
 
 ```pwsh
 winget install `
-    "Sysinternals Suite" `
-    AgileBits.1Password `
-    AgileBits.1Password.CLI `
-    Anki.Anki `
-    Axosoft.GitKraken `
-    calibre.calibre `
-    Discord.Discord `
-    Docker.DockerDesktop `
-    JetBrains.Toolbox `
-    Microsoft.PowerToys `
-    Microsoft.VisualStudioCode `
-    mIRC.mIRC `
-    Proton.ProtonDrive `
-    Proton.ProtonMail `
-    Stremio `
-    SumatraPDF.SumatraPDF `
-    tailscale.tailscale `
-    Valve.Steam
+   "Sysinternals Suite" `
+   AgileBits.1Password `
+   AgileBits.1Password.CLI `
+   Anki.Anki `
+   Axosoft.GitKraken `
+   calibre.calibre `
+   Discord.Discord `
+   Docker.DockerDesktop `
+   JetBrains.Toolbox `
+   Microsoft.DotNet.AspNetCore.8 `
+   Microsoft.DotNet.DesktopRuntime.8 `
+   Microsoft.DotNet.Runtime.8 `
+   Microsoft.DotNet.SDK.8 `
+   Microsoft.PowerToys `
+   Microsoft.VisualStudioCode `
+   mIRC.mIRC `
+   Proton.ProtonDrive `
+   Stremio `
+   SumatraPDF.SumatraPDF `
+   tailscale.tailscale `
+   Valve.Steam
 ```
 
 9. Configure Git SSH access with the following command (do this as an
