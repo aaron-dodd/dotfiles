@@ -47,7 +47,7 @@
     diff = true
     status = true
 [commit]
-    gpgSign = {{ .git.sign.force }}
+    gpgSign = {{ .git.sign.commits }}
     verbose = true
 [core]
     attributesFile = "{{ .chezmoi.homeDir }}/.gitattributes"
@@ -102,6 +102,6 @@
     autoUpdate = true
     enabled = true
 [tag]
-    gpgSign = {{ .git.sign.force }}
+    gpgSign = {{ .git.sign.tags }}
 [url "git@github.com:"]
 	insteadOf = "https://github.com/"
