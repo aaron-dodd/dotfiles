@@ -1,73 +1,69 @@
 # Machine Setup Instructions
 ## Microsoft Windows
 
-1. Install as many Windows Updates as possible and reboot as needed.
-2. Install microsoft store if it hasn't come preinstalled with the following
-   command:
+0. Install the Microsoft Store if it doesn't already exist using the following command:
 
 ```pwsh
 wsreset -i
 ```
 
-3. Open Microsoft Store and download all updates.
-4. Install Hyper-V using Windows Features and reboot as needed.
-5. Install WSL2 using the following commands and reboot as needed:
+0. Use the following command to install Chocolatey:
 
 ```pwsh
-wsl --install Ubuntu
+irm https://chocolatey.org/install.ps1 | iex
 ```
 
-6. Install scoop using the following commands:
+0. Go to Check for updates.
+0. Check for Windows updates.
+0. Open the Microsoft Store.
+0. Navigate to Library.
+0. Check for Microsoft Store updates.
+0. Enable Hyper-V and restart your computer.
+0. Install Windows Subsystem for Linux with the following command and restart your computer:
 
 ```pwsh
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+wsl --install --distribution Ubuntu
 ```
 
-7. Install the following scoop software using the command:
+NOTE: This operation can take a while. When you restart your will be prompted to enter a
+username and password.
+
+0. Install the following apps using the `winget` command:
 
 ```pwsh
-scoop install chezmoi, git, oh-my-posh, 7zip
-scoop bucket add extras
-scoop install cheat-engine, vcredist, winget
+winget install "Sysinternals Suite"
+winget install abbodi1406.vcredist
+winget install AgileBits.1Password
+winget install AgileBits.1Password.CLI
+winget install Anki.Anki
+winget install AntibodySoftware.WizTree
+winget install Discord.Discord
+winget install Docker.DockerDesktop
+winget install gerardog.gsudo
+winget install Giorgiotani.Peazip
+winget install Git.Git
+winget install Google.Chrome
+winget install JanDeDobbeleer.OhMyPosh
+winget install JetBrains.Toolbox # Sometimes this doesn't work.
+winget install Microsoft.PowerShell
+winget install Microsoft.PowerToys
+winget install Microsoft.VisualStudioCode
+winget install Mozilla.Firefox
+winget install Stremio.Stremio
+winget install SumatraPDF.SumatraPDF
+winget install twpayne.chezmoi
+winget install Valve.Steam
+winget install VideoLAN.VLC
 ```
 
-8. Get the following software using the following winget command:
-
-```pwsh
-winget install `
-   "Sysinternals Suite" `
-   AgileBits.1Password `
-   AgileBits.1Password.CLI `
-   Anki.Anki `
-   Axosoft.GitKraken `
-   calibre.calibre `
-   Discord.Discord `
-   Docker.DockerDesktop `
-   JetBrains.Toolbox `
-   Microsoft.DotNet.AspNetCore.8 `
-   Microsoft.DotNet.DesktopRuntime.8 `
-   Microsoft.DotNet.Runtime.8 `
-   Microsoft.DotNet.SDK.8 `
-   Microsoft.PowerToys `
-   Microsoft.VisualStudioCode `
-   MiKTeX.MiKTeX `
-   mIRC.mIRC `
-   Proton.ProtonDrive `
-   Stremio `
-   SumatraPDF.SumatraPDF `
-   tailscale.tailscale `
-   Valve.Steam
-```
-
-9. Configure Git SSH access with the following command (do this as an
-   administrator):
+0. Configure Git SSH access with the following command (do this as an administrator):
 
 ```pwsh
 setx /M GIT_SSH C:\Windows\System32\OpenSSH\ssh.exe
 ```
 
-10. Login to services.
+0. Login to services.
+0. Enable 1Password SSH agent.
 
 ## openSUSE Tumbleweed
 
