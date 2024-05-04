@@ -1,25 +1,25 @@
 # Machine Setup Instructions
 ## Microsoft Windows
 
-0. Install the Microsoft Store if it doesn't already exist using the following command:
+- Install the Microsoft Store if it doesn't already exist using the following command:
 
 ```pwsh
 wsreset -i
 ```
 
-0. Use the following command to install Chocolatey:
+- Use the following command to install Chocolatey:
 
 ```pwsh
 irm https://chocolatey.org/install.ps1 | iex
 ```
 
-0. Go to Check for updates.
-0. Check for Windows updates.
-0. Open the Microsoft Store.
-0. Navigate to Library.
-0. Check for Microsoft Store updates.
-0. Enable Hyper-V and restart your computer.
-0. Install Windows Subsystem for Linux with the following command and restart your computer:
+- Go to Check for updates.
+- Check for Windows updates.
+- Open the Microsoft Store.
+- Navigate to Library.
+- Check for Microsoft Store updates.
+- Enable Hyper-V and restart your computer.
+- Install Windows Subsystem for Linux with the following command and restart your computer:
 
 ```pwsh
 wsl --install --distribution Ubuntu
@@ -28,7 +28,7 @@ wsl --install --distribution Ubuntu
 NOTE: This operation can take a while. When you restart your will be prompted to enter a
 username and password.
 
-0. Install the following apps using the `winget` command:
+- Install the following apps using the `winget` command:
 
 ```pwsh
 winget install "Sysinternals Suite"
@@ -56,38 +56,38 @@ winget install Valve.Steam
 winget install VideoLAN.VLC
 ```
 
-0. Configure Git SSH access with the following command (do this as an administrator):
+- Configure Git SSH access with the following command (do this as an administrator):
 
 ```pwsh
 setx /M GIT_SSH C:\Windows\System32\OpenSSH\ssh.exe
 ```
 
-0. Login to services.
-0. Enable 1Password SSH agent.
+- Login to services.
+- Enable 1Password SSH agent.
 
 ## openSUSE Tumbleweed
 
-1. Use the openSUSE YaST installer
-2. Get latest updates:
+- Use the openSUSE YaST installer
+- Get latest updates:
 
 ```bash
 sudo zypper ref
 sudo zypper dup
 ```
 
-3. Install applications using zypper:
+- Install applications using zypper:
 
 ```bash
 sudo zypper in chezmoi git google-noto-sans-cjk-fonts keepassxc opi syncthing
 ```
 
-4. Install dotfiles using chezmoi:
+- Install dotfiles using chezmoi:
 
 ```bash
 chezmoi init --ssh aaron-dodd
 ```
 
-5. Install applications using opi:
+- Install applications using opi:
 
 ```bash
 opi codecs
