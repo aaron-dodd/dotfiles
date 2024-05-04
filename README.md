@@ -49,6 +49,7 @@ winget install Microsoft.PowerShell
 winget install Microsoft.PowerToys
 winget install Microsoft.VisualStudioCode
 winget install Mozilla.Firefox
+winget install Obsidian.Obsidian
 winget install Stremio.Stremio
 winget install SumatraPDF.SumatraPDF
 winget install twpayne.chezmoi
