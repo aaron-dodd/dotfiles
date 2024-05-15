@@ -48,6 +48,7 @@ winget install JetBrains.Toolbox # Sometimes this doesn't work.
 winget install Microsoft.PowerShell
 winget install Microsoft.PowerToys
 winget install Microsoft.VisualStudioCode
+winget install MiKTeX.MiKTeX
 winget install Mozilla.Firefox
 winget install Obsidian.Obsidian
 winget install Stremio.Stremio
