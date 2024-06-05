@@ -37,6 +37,7 @@ winget install AgileBits.1Password
 winget install AgileBits.1Password.CLI
 winget install Anki.Anki
 winget install AntibodySoftware.WizTree
+winget install Chocolatey.Chocolatey
 winget install Discord.Discord
 winget install Docker.DockerDesktop
 winget install gerardog.gsudo
@@ -52,7 +53,7 @@ winget install MiKTeX.MiKTeX
 winget install Mozilla.Firefox
 winget install Obsidian.Obsidian
 winget install Stremio.Stremio
-winget install SumatraPDF.SumatraPDF
+winget install tailscale.tailscale
 winget install twpayne.chezmoi
 winget install Valve.Steam
 winget install VideoLAN.VLC
