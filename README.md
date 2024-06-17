@@ -43,7 +43,9 @@ winget install Docker.DockerDesktop
 winget install gerardog.gsudo
 winget install Giorgiotani.Peazip
 winget install Git.Git
+winget install GoldenDict.GoldenDict
 winget install Google.Chrome
+winget install Google.JapaneseIME
 winget install JanDeDobbeleer.OhMyPosh
 winget install JetBrains.Toolbox # Sometimes this doesn't work.
 winget install Microsoft.PowerShell
