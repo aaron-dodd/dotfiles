@@ -56,6 +56,8 @@ winget install Microsoft.WinDbg
 winget install MiKTeX.MiKTeX
 winget install Mozilla.Firefox
 winget install Obsidian.Obsidian
+winget install OpenJS.NodeJS
+winget install pnpm.pnpm
 winget install Stremio.Stremio
 winget install tailscale.tailscale
 winget install twpayne.chezmoi
