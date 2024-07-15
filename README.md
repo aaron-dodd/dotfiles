@@ -52,6 +52,7 @@ winget install JetBrains.Toolbox # Sometimes this doesn't work.
 winget install Microsoft.PowerShell
 winget install Microsoft.PowerToys
 winget install Microsoft.VisualStudioCode
+winget install Microsoft.WinDbg
 winget install MiKTeX.MiKTeX
 winget install Mozilla.Firefox
 winget install Obsidian.Obsidian
@@ -60,6 +61,8 @@ winget install tailscale.tailscale
 winget install twpayne.chezmoi
 winget install Valve.Steam
 winget install VideoLAN.VLC
+winget install Vivaldi.Vivaldi
+winget install WiresharkFoundation.Wireshark
 ```
 
 - Configure Git SSH access with the following command (do this as an administrator):
