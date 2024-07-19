@@ -43,6 +43,7 @@ winget install Docker.DockerDesktop
 winget install gerardog.gsudo
 winget install Giorgiotani.Peazip
 winget install Git.Git
+winget install GitButler.GitButler
 winget install GNU.MidnightCommander
 winget install GoldenDict.GoldenDict
 winget install Google.Chrome
