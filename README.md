@@ -80,67 +80,15 @@ setx /M GIT_SSH C:\Windows\System32\OpenSSH\ssh.exe
 - Login to services.
 - Enable 1Password SSH agent.
 
-## openSUSE Tumbleweed
-
-- Use the openSUSE YaST installer
-- Get latest updates:
-
-```bash
-sudo zypper ref
-sudo zypper dup
-```
-
-- Install applications using zypper:
-
-```bash
-sudo zypper in chezmoi git google-noto-sans-cjk-fonts keepassxc opi syncthing
-```
-
-- Install dotfiles using chezmoi:
-
-```bash
-chezmoi init --ssh aaron-dodd
-```
-
-- Install applications using opi:
-
-```bash
-opi codecs
-opi vivaldi
-opi vscode
-```
-
-- Get JetBrains Toolbox from the website as an AppImage and install it.
-- Get flatpaks
-
-```bash
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-flatpak install --user --assumeyes flathub net.ankiweb.Anki
-flatpak install --user --assumeyes flathub com.discordapp.Discord
-```
-
 ## Chezmoi guide
 ### Installation
 
-To install chezmoi on linux, use the following command:
-
-```bash
-sh -c "$(curl -fsLS get.chezmoi.io)"
-```
-
-On windows you have to do it yourself. Consult the manual on https://chezmoi.io
+Consult the manual on https://chezmoi.io for installation steps.
 
 ### Usage
 
-On linux, you can simply run:
-
-```bash
-chezmoi init aaron-dodd --ssh
-```
-
-On windows or the Windows Subsystem for Linux (WSL) you might have to do the following:
+On windows or the Windows Subsystem for Linux (WSL) you might have to do the
+following to setup chezmoi:
 
 ```bash
 cd ~
