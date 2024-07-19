@@ -1,7 +1,8 @@
 # Machine Setup Instructions
 ## Microsoft Windows
 
-- Install the Microsoft Store if it doesn't already exist using the following command:
+- Install the Microsoft Store if it doesn't already exist using the following
+  command:
 
 ```pwsh
 wsreset -i
@@ -19,14 +20,15 @@ irm https://chocolatey.org/install.ps1 | iex
 - Navigate to Library.
 - Check for Microsoft Store updates.
 - Enable Hyper-V and restart your computer.
-- Install Windows Subsystem for Linux with the following command and restart your computer:
+- Install Windows Subsystem for Linux with the following command and restart
+  your computer:
 
 ```pwsh
 wsl --install --distribution Ubuntu
 ```
 
-NOTE: This operation can take a while. When you restart your will be prompted to enter a
-username and password.
+NOTE: This operation can take a while. When you restart your will be prompted
+to enter a username and password.
 
 - Install the following apps using the `winget` command:
 
@@ -68,7 +70,8 @@ winget install Vivaldi.Vivaldi
 winget install WiresharkFoundation.Wireshark
 ```
 
-- Configure Git SSH access with the following command (do this as an administrator):
+- Configure Git SSH access with the following command (do this as an
+  administrator):
 
 ```pwsh
 setx /M GIT_SSH C:\Windows\System32\OpenSSH\ssh.exe
