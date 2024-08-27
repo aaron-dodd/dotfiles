@@ -39,6 +39,7 @@ winget install AgileBits.1Password
 winget install AgileBits.1Password.CLI
 winget install Anki.Anki
 winget install AntibodySoftware.WizTree
+winget install Axosoft.GitKraken
 winget install Chocolatey.Chocolatey
 winget install Discord.Discord
 winget install Docker.DockerDesktop
