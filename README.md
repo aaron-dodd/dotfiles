@@ -41,14 +41,13 @@ winget install Anki.Anki
 winget install AntibodySoftware.WizTree
 winget install Axosoft.GitKraken
 winget install Chocolatey.Chocolatey
+winget install DevToys-app.DevToys
 winget install Discord.Discord
 winget install Docker.DockerDesktop
 winget install gerardog.gsudo
 winget install Giorgiotani.Peazip
 winget install Git.Git
 winget install GNU.MidnightCommander
-winget install GoldenDict.GoldenDict
-winget install Google.Chrome
 winget install Google.JapaneseIME
 winget install JanDeDobbeleer.OhMyPosh
 winget install JetBrains.Toolbox # Sometimes this doesn't work.
@@ -57,16 +56,15 @@ winget install Microsoft.PowerToys
 winget install Microsoft.VisualStudioCode
 winget install Microsoft.WinDbg
 winget install MiKTeX.MiKTeX
-winget install Mozilla.Firefox
 winget install Obsidian.Obsidian
 winget install OpenJS.NodeJS
 winget install pnpm.pnpm
+winget install ScooterSoftware.BeyondCompare5
 winget install Stremio.Stremio
 winget install tailscale.tailscale
 winget install twpayne.chezmoi
 winget install Valve.Steam
 winget install VideoLAN.VLC
-winget install Vivaldi.Vivaldi
 winget install WiresharkFoundation.Wireshark
 ```
 
