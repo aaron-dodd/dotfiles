@@ -34,6 +34,7 @@ to enter a username and password.
 
 ```pwsh
 winget install "Sysinternals Suite"
+winget install 7zip.7zip
 winget install abbodi1406.vcredist
 winget install AgileBits.1Password
 winget install AgileBits.1Password.CLI
@@ -43,9 +44,10 @@ winget install Axosoft.GitKraken
 winget install Chocolatey.Chocolatey
 winget install DevToys-app.DevToys
 winget install Discord.Discord
+winget install Ditto.Ditto
 winget install Docker.DockerDesktop
+winget install File-New-Project.EarTrumpet
 winget install gerardog.gsudo
-winget install Giorgiotani.Peazip
 winget install Git.Git
 winget install GNU.MidnightCommander
 winget install Google.JapaneseIME
@@ -57,8 +59,10 @@ winget install Microsoft.VisualStudioCode
 winget install Microsoft.WinDbg
 winget install MiKTeX.MiKTeX
 winget install Obsidian.Obsidian
+winget install OBSProject.OBSStudio
 winget install OpenJS.NodeJS
 winget install pnpm.pnpm
+winget install Proton.ProtonVPN
 winget install ScooterSoftware.BeyondCompare5
 winget install Stremio.Stremio
 winget install tailscale.tailscale
