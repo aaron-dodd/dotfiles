@@ -1,14 +1,21 @@
-[data]
-    work_device = false
+{{- $defaultName := "Aaron Dodd" -}}
+{{- $defaultEmail := "me@aaronrdodd.com" -}}
+{{- $defaultGithubUsername := "aaron-dodd" }}
 
-    user.fullname = "Aaron Dodd"
-    user.email = "me@aaronrdodd.com"
+[data]
+    work_device = {{ promptBool "Is this a work device" false | quote }}
+
+    user.fullname = {{ promptString "What is your full name" $defaultName | quote }}
+    user.email = {{ promptString "What is your email" $defaultEmail | quote }}
     user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH+VPgzwtfVo/JEFBg97ngn7cqqPMUyVmuHKUJwyj0/+"
 
-    git.diffmergetool.beyondcompare = true
-    git.github.username = "aaron-dodd"
+    git.github.username = {{ promptString "What is your GitHub username" $defaultGithubUsername | quote }}
     git.sign.format = "ssh"
     git.sign.commits = false
     git.sign.tags = true
 
-    ssh.onepassword = true
+    beyondcompare.enable = true
+    beyondcompare.windows.path = "c:/Program Files/Beyond Compare 5/bcomp.exe"
+
+    ssh.onepassword.enable = true
+    ssh.onepassword.linux.path = "/opt/1Password/op-ssh-sign"
