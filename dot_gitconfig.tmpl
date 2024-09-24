@@ -53,17 +53,17 @@
     colorMoved = "default"
     compactionHeuristic = true
     renames = true
-{{- if .git.diffmergetool.beyondcompare }}
+{{- if .beyondcompare.enable }}
     tool = bc
 {{end -}}
 [difftool]
     prompt = false
-{{- if (and .git.diffmergetool.beyondcompare (eq .chezmoi.os "linux")) }}
+{{- if (and .beyondcompare.enable (eq .chezmoi.os "linux")) }}
 [difftool "bc"]
     trustExitCode = true
-{{- else if (and .git.diffmergetool.beyondcompare (eq .chezmoi.os "windows")) }}
+{{- else if (and .beyondcompare.enable (eq .chezmoi.os "windows")) }}
 [difftool "bc"]
-    path = "c:/Program Files/Beyond Compare 5/bcomp.exe"
+    path = {{ .beyondcompare.windows.path }}
 {{ end -}}
 [format]
     signoff = true
@@ -76,9 +76,9 @@
 [gpg "ssh"]
     allowedSignersFile = "{{ .chezmoi.homeDir }}/.config/git/allowed_signers"
 
-{{- if (and .ssh.onepassword (eq .chezmoi.os "linux")) }}
+{{- if (and .ssh.onepassword.enable (eq .chezmoi.os "linux")) }}
     program = "/opt/1Password/op-ssh-sign"
-{{- else if (and .ssh.onepassword (eq .chezmoi.os "windows")) }}
+{{- else if (and .ssh.onepassword.enable (eq .chezmoi.os "windows")) }}
     program = "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
 {{ end -}}
 {{ end -}}
@@ -93,19 +93,19 @@
     singlekey = true
 [merge]
     conflictStyle = "zdiff3"
-{{- if .git.diffmergetool.beyondcompare }}
+{{- if .beyondcompare.enable }}
     tool = bc
 {{end -}}
 [mergetool]
     prompt = false
     keepBackup = false
 
-{{- if (and .git.diffmergetool.beyondcompare (eq .chezmoi.os "linux")) }}
+{{- if (and .beyondcompare.enable (eq .chezmoi.os "linux")) }}
 [mergetool "bc"]
     trustExitCode = true
-{{- else if (and .git.diffmergetool.beyondcompare (eq .chezmoi.os "windows")) }}
+{{- else if (and .beyondcompare.enable (eq .chezmoi.os "windows")) }}
 [mergetool "bc"]
-    path = "c:/Program Files/Beyond Compare 5/bcomp.exe"
+    path = "{{ .beyondcompare.windows.path }}"
 {{ end -}}
 
 [pull]
@@ -127,7 +127,7 @@
 [tag]
     gpgSign = {{ .git.sign.tags }}
 [url "git@github.com:"]
-	insteadOf = "https://github.com/"
+    insteadOf = "https://github.com/"
 [user]
     name = {{ .user.fullname }}
     email = {{ .user.email }}
