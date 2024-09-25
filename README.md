@@ -8,29 +8,19 @@
 wsreset -i
 ```
 
-- Use the following command to install Chocolatey:
-
-```pwsh
-irm https://chocolatey.org/install.ps1 | iex
-```
-
 - Go to Check for updates.
 - Check for Windows updates.
 - Open the Microsoft Store.
 - Navigate to Library.
 - Check for Microsoft Store updates.
 - Enable Hyper-V and restart your computer.
-- Install Windows Subsystem for Linux with the following command and restart
-  your computer:
+- Run the following command using `winget` to import packages:
 
 ```pwsh
-wsl --install --distribution Ubuntu
+winget import --import-file packages.json
 ```
 
-NOTE: This operation can take a while. When you restart your will be prompted
-to enter a username and password.
-
-- Install the following apps using the `winget` command:
+- (Alternatively) Install the following apps using the `winget` command:
 
 ```pwsh
 winget install "Sysinternals Suite"
@@ -38,7 +28,10 @@ winget install 7zip.7zip
 winget install abbodi1406.vcredist
 winget install AgileBits.1Password
 winget install AgileBits.1Password.CLI
+winget install Anki.Anki
 winget install AntibodySoftware.WizTree
+winget install BlenderFoundation.Blender
+winget install Brave.Brave
 winget install DevToys-app.DevToys
 winget install Discord.Discord
 winget install Docker.DockerDesktop
@@ -46,6 +39,8 @@ winget install Git.Git
 winget install Google.JapaneseIME
 winget install JanDeDobbeleer.OhMyPosh
 winget install JetBrains.Toolbox # Sometimes this doesn't work.
+winget install KDE.Krita
+winget install KeePassXCTeam.KeePassXC
 winget install Microsoft.DotNet.AspNetCore.8
 winget install Microsoft.DotNet.Runtime.8
 winget install Microsoft.DotNet.SDK.8
@@ -56,8 +51,11 @@ winget install Microsoft.WinDbg
 winget install Obsidian.Obsidian
 winget install OBSProject.OBSStudio
 winget install OpenJS.NodeJS
+winget install Proton.ProtonVPN
+winget install restic.restic
 winget install ScooterSoftware.BeyondCompare5
 winget install Stremio.Stremio
+winget install SumatraPDF.SumatraPDF
 winget install tailscale.tailscale
 winget install twpayne.chezmoi
 winget install Valve.Steam
@@ -74,32 +72,18 @@ setx /M GIT_SSH C:\Windows\System32\OpenSSH\ssh.exe
 
 - Login to services.
 - Enable 1Password SSH agent.
+- Install Windows Subsystem for Linux with the following command and restart
+  your computer:
 
-## Chezmoi guide
-### Installation
-
-Consult the manual on https://chezmoi.io for installation steps.
-
-### Usage
-
-On windows or the Windows Subsystem for Linux (WSL) you might have to do the
-following to setup chezmoi:
-
-```bash
-cd ~
-mkdir -p ~/.local/share/chezmoi
-git clone https://github.com/aaron-dodd/dotfiles ~/.local/share/chezmoi
+```pwsh
+wsl --install --distribution Ubuntu
 ```
 
-Enter into WSL:
+NOTE: This operation can take a while. When you restart your will be prompted
+to enter a username and password.
 
-```bash
-wsl
-```
+- Install dotfiles with the following command:
 
-Run chezmoi from the command line:
-
-```bash
-chezmoi -S .local/share/chezmoi -D . init
-chezmoi -S .local/share/chezmoi -D . apply
+```pwsh
+chezmoi init aaron-dodd --apply --ssh
 ```
