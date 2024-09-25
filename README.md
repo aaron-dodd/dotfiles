@@ -46,6 +46,9 @@ winget install Git.Git
 winget install Google.JapaneseIME
 winget install JanDeDobbeleer.OhMyPosh
 winget install JetBrains.Toolbox # Sometimes this doesn't work.
+winget install Microsoft.DotNet.AspNetCore.8
+winget install Microsoft.DotNet.Runtime.8
+winget install Microsoft.DotNet.SDK.8
 winget install Microsoft.PowerShell
 winget install Microsoft.PowerToys
 winget install Microsoft.VisualStudioCode
