@@ -36,18 +36,26 @@
     signed-off-by-me = "!git trailer-add-me Signed-off-by"
     tested-by = "!git trailer-add Tested-by"
     tested-by-me = "!git trailer-add-me Tested-by"
+
 [branch]
     autosetuprebase = "always"
+
 [color]
     branch = true
     diff = true
     status = true
+
 [commit]
     gpgSign = {{ .git.sign.commits }}
     verbose = true
+
 [core]
     attributesFile = "{{ .chezmoi.homeDir }}/.gitattributes"
     excludesFile = "{{ .chezmoi.homeDir }}/.gitignore"
+{{- if (and .ssh.onepassword.enable (eq .chezmoi.os "windows")) }}
+    sshCommand = "ssh.exe"
+{{- end }}
+
 [diff]
     algorithm = "histogram"
     colorMoved = "default"
@@ -55,23 +63,29 @@
     renames = true
 {{- if .beyondcompare.enable }}
     tool = bc
-{{end -}}
+{{- end }}
+
 [difftool]
     prompt = false
 {{- if (and .beyondcompare.enable (eq .chezmoi.os "linux")) }}
 [difftool "bc"]
     trustExitCode = true
 {{- else if (and .beyondcompare.enable (eq .chezmoi.os "windows")) }}
+
 [difftool "bc"]
     path = {{ .beyondcompare.windows.path }}
-{{ end -}}
+{{- end }}
+
 [format]
     signoff = true
+
 [github]
     user = {{ .git.github.username }}
+
 [gpg]
     format = {{ .git.sign.format }}
-{{ if eq .git.sign.format "ssh" -}}
+
+{{- if eq .git.sign.format "ssh" }}
 
 [gpg "ssh"]
     allowedSignersFile = "{{ .chezmoi.homeDir }}/.config/git/allowed_signers"
@@ -80,54 +94,65 @@
     program = "/opt/1Password/op-ssh-sign"
 {{- else if (and .ssh.onepassword.enable (eq .chezmoi.os "windows")) }}
     program = "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
-{{ end -}}
-{{ end -}}
+{{- end -}}
+{{- end }}
 
 [help]
     autocorrect = "10"
+
 [include]
     path = "{{ .chezmoi.homeDir }}/.gitconfig.local"
+
 [init]
     defaultBranch = "main"
+
 [interactive]
     singlekey = true
+
 [merge]
     conflictStyle = "zdiff3"
 {{- if .beyondcompare.enable }}
     tool = bc
-{{end -}}
+{{- end }}
+
 [mergetool]
     prompt = false
     keepBackup = false
 
-{{- if (and .beyondcompare.enable (eq .chezmoi.os "linux")) }}
+{{- if (and .beyondcompare.enable (eq .chezmoi.os "linux")) -}}
 [mergetool "bc"]
     trustExitCode = true
-{{- else if (and .beyondcompare.enable (eq .chezmoi.os "windows")) }}
+{{- else if (and .beyondcompare.enable (eq .chezmoi.os "windows")) -}}
 [mergetool "bc"]
     path = "{{ .beyondcompare.windows.path }}"
-{{ end -}}
+{{- end }}
 
 [pull]
     autostash = true
     rebase = true
     twohead = "ort"
+
 [push]
     autoSetupremote = true
     default = "current"
     recurseSubmodules = "on-demand"
+
 [rebase]
     autoSquash = true
     autoStash = true
     stat = true
     updateRefs = true
+
 [rerere]
     autoUpdate = true
     enabled = true
+
 [tag]
     gpgSign = {{ .git.sign.tags }}
+
 [url "git@github.com:"]
     insteadOf = "https://github.com/"
+
 [user]
     name = {{ .user.fullname }}
     email = {{ .user.email }}
