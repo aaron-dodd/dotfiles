@@ -31,7 +31,6 @@ winget install AgileBits.1Password.CLI
 winget install Anki.Anki
 winget install AntibodySoftware.WizTree
 winget install BlenderFoundation.Blender
-winget install Brave.Brave
 winget install DevToys-app.DevToys
 winget install Discord.Discord
 winget install Docker.DockerDesktop
