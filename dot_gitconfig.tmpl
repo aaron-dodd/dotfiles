@@ -70,12 +70,13 @@
 [difftool]
     prompt = false
 {{- if (and .beyondcompare.enable (eq .chezmoi.os "linux")) }}
+
 [difftool "bc"]
     trustExitCode = true
 {{- else if (and .beyondcompare.enable (eq .chezmoi.os "windows")) }}
 
 [difftool "bc"]
-    path = {{ .beyondcompare.windows.path }}
+    path = "{{ .beyondcompare.windows.path }}"
 {{- end }}
 
 [format]
@@ -120,11 +121,12 @@
 [mergetool]
     prompt = false
     keepBackup = false
+{{- if (and .beyondcompare.enable (eq .chezmoi.os "linux")) }}
 
-{{- if (and .beyondcompare.enable (eq .chezmoi.os "linux")) -}}
 [mergetool "bc"]
     trustExitCode = true
-{{- else if (and .beyondcompare.enable (eq .chezmoi.os "windows")) -}}
+{{- else if (and .beyondcompare.enable (eq .chezmoi.os "windows")) }}
+
 [mergetool "bc"]
     path = "{{ .beyondcompare.windows.path }}"
 {{- end }}
