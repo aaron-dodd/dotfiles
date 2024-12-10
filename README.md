@@ -60,6 +60,7 @@ winget install tailscale.tailscale
 winget install twpayne.chezmoi
 winget install Valve.Steam
 winget install VideoLAN.VLC
+winget install voidtools.Everything
 winget install WiresharkFoundation.Wireshark
 ```
 
