@@ -35,6 +35,7 @@ winget install DevToys-app.DevToys
 winget install Discord.Discord
 winget install Docker.DockerDesktop
 winget install Git.Git
+winget install Google.Chrome
 winget install Google.JapaneseIME
 winget install JanDeDobbeleer.OhMyPosh
 winget install JetBrains.Toolbox # Sometimes this doesn't work.
