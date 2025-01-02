@@ -54,9 +54,6 @@
 [core]
     attributesFile = "{{ .chezmoi.homeDir }}/.gitattributes"
     excludesFile = "{{ .chezmoi.homeDir }}/.gitignore"
-{{- if (and .ssh.onepassword.enable (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
-    sshCommand = "ssh.exe"
-{{- end }}
 
 [diff]
     algorithm = "histogram"
@@ -93,11 +90,6 @@
 [gpg "ssh"]
     allowedSignersFile = "{{ .chezmoi.homeDir }}/.config/git/allowed_signers"
 
-{{- if (and .ssh.onepassword.enable (eq .chezmoi.os "linux")) }}
-    program = "/opt/1Password/op-ssh-sign"
-{{- else if (and .ssh.onepassword.enable (eq .chezmoi.os "windows")) }}
-    program = "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
-{{- end -}}
 {{- end }}
 
 [help]
@@ -154,10 +146,7 @@
 [tag]
     gpgSign = {{ .git.sign.tags }}
 
-[url "git@github.com:"]
-    insteadOf = "https://github.com/"
-
 [user]
-    name = {{ .user.fullname }}
-    email = {{ .user.email }}
-    signingkey = {{ .user.signingkey }}
+    name = "{{ .user.fullname }}"
+    email = "{{ .user.email }}"
+    signingkey = "{{ .user.signingkey }}"
