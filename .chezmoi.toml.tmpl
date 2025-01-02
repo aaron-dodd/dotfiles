@@ -7,7 +7,7 @@
 
     user.fullname = {{ promptString "What is your full name" $defaultName | quote }}
     user.email = {{ promptString "What is your email" $defaultEmail | quote }}
-    user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH+VPgzwtfVo/JEFBg97ngn7cqqPMUyVmuHKUJwyj0/+"
+    user.signingkey = "{{ .chezmoi.homeDir }}/.ssh/id_ed25519.pub"
 
     git.github.username = {{ promptString "What is your GitHub username" $defaultGithubUsername | quote }}
     git.sign.format = "ssh"
