@@ -6,3 +6,8 @@ Host personal.github.com
 	PreferredAuthentications publickey
 	IdentitiesOnly yes
 	IdentityFile ~/.ssh/id_ed25519
+
+{{- if and (.ssh.onepassword) (eq .chezmoi.os "linux") }}
+Host *
+       IdentityAgent ~/.1password/agent.sock
+{{ end -}}
