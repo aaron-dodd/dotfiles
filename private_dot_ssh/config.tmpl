@@ -1,13 +1,15 @@
 AddKeysToAgent yes
 
-Host personal.github.com
-	HostName github.com
-	User git
-	PreferredAuthentications publickey
-	IdentitiesOnly yes
-	IdentityFile ~/.ssh/id_ed25519
-
 {{- if and (.ssh.onepassword) (eq .chezmoi.os "linux") }}
 Host *
        IdentityAgent ~/.1password/agent.sock
+{{ end -}}
+
+{{- if not .ssh.onepassword }}
+Host personal.github.com
+        HostName github.com
+        User git
+        PreferredAuthentications publickey
+        IdentitiesOnly yes
+        IdentityFile ~/.ssh/id_ed25519
 {{ end -}}
