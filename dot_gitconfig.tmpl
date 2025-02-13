@@ -4,6 +4,7 @@
     comma = "commit --amend"
     force-push = "push --force-with-lease"
     get = "clone --recursive"
+    logs = !"fun() { git log --pretty=format:\"%C(yellow)%h,%C(reset) %C(green)%an,%C(reset) %C(cyan)%ar%C(reset): %s\"; }; fun"
     mr = !"fun() { git fetch origin merge-requests/$1/head:mr-$1; git checkout mr-$1; }; fun"
     pr = !"fun() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; fun"
     publish = !"git pull && git push"
