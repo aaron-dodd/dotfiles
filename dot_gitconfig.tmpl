@@ -15,6 +15,8 @@
     reset-pr = "reset --hard FETCH_HEAD"
     resign = !"fun() { GIT_FORMATTER_DATE=\"$(git log -n 1 --format=%aD)\" git commit --amend --no-edit -n -S; }; fun"
     resign-until = !"fun() { git rebase --exec 'GIT_FORMATTER_DATE=\"$(git log -n 1 --format=%aD)\" git commit --amend --no-edit -n -S' -i $1; }; fun"
+    unsign = !"fun() { GIT_FORMATTER_DATE=\"$(git log -n 1 --format=%aD)\" git commit --amend --no-edit --no-gpg-sign -n; }; fun"
+    unsign-until = !"fun() { git rebase --exec 'GIT_FORMATTER_DATE=\"$(git log -n 1 --format=%aD)\" git commit --amend --no-edit --no-gpg-sign -n' -i $1; }; fun"
     search = !"fun() { git log -S $1; }; fun"
     search-commit = !"fun() { git log --grep $1; }; fun"
     search-diff = !"fun() { git log -S $1 -p $2; }; fun"
