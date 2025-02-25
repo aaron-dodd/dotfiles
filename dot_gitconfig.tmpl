@@ -42,11 +42,15 @@
 
 [branch]
     autosetuprebase = "always"
+    sort = -committerdate
 
 [color]
     branch = true
     diff = true
     status = true
+
+[column]
+    ui = auto
 
 [commit]
     gpgSign = {{ .git.sign.commits }}
@@ -80,6 +84,11 @@
     path = "{{ .beyondcompare.windows.path }}"
 {{- end }}
 
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+
 [format]
     signoff = true
 
@@ -102,7 +111,7 @@
 {{- end }}
 
 [help]
-    autocorrect = "10"
+    autocorrect = "prompt"
 
 [include]
     path = "{{ .chezmoi.homeDir }}/.gitconfig.local"
@@ -140,6 +149,7 @@
 [push]
     autoSetupremote = true
     default = "current"
+    followTags = true
     recurseSubmodules = "on-demand"
 
 [rebase]
@@ -154,6 +164,7 @@
 
 [tag]
     gpgSign = {{ .git.sign.tags }}
+    sort = version:refname
 
 [url "git@github.com:"]
     insteadOf = "https://github.com/"
