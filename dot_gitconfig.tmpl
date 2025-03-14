@@ -61,8 +61,11 @@
 [core]
     attributesFile = "{{ .chezmoi.homeDir }}/.gitattributes"
     excludesFile = "{{ .chezmoi.homeDir }}/.gitignore"
-{{- if (and .ssh.onepassword.enable (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
-    sshCommand = "ssh.exe"
+{{- if (and .ssh.agent.enable (eq .chezmoi.os "windows")) }}
+    sshCommand = "{{ .ssh.agent.windows.path }}"
+{{- end }}
+{{- if (and .ssh.agent.enable (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
+    sshCommand = "{{ .ssh.agent.wsl.path }}"
 {{- end }}
 
 [diff]

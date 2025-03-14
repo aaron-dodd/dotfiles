@@ -20,3 +20,7 @@
     ssh.onepassword.enable = true
     ssh.onepassword.sign.linux.path = "/opt/1Password/op-ssh-sign"
     ssh.onepassword.sign.windows.path = "{{.chezmoi.homeDir }}/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+
+    ssh.agent.enable = true
+    ssh.agent.windows.path = "C:/Windows/System32/OpenSSH/ssh.exe"
+    ssh.agent.wsl.path = "ssh.exe"
