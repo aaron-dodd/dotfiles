@@ -7,15 +7,16 @@
 
     user.fullname = {{ promptString "What is your full name" $defaultName | quote }}
     user.email = {{ promptString "What is your email" $defaultEmail | quote }}
-    user.signingkey = "{{ .chezmoi.homeDir }}/.ssh/id_ed25519.pub"
+    user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH+VPgzwtfVo/JEFBg97ngn7cqqPMUyVmuHKUJwyj0/+"
 
     git.github.username = {{ promptString "What is your GitHub username" $defaultGithubUsername | quote }}
     git.sign.format = "ssh"
-    git.sign.commits = false
+    git.sign.commits = true
     git.sign.tags = true
 
     beyondcompare.enable = true
     beyondcompare.windows.path = "c:/Program Files/Beyond Compare 5/bcomp.exe"
 
-    ssh.onepassword.enable = false
-    ssh.onepassword.linux.path = "/opt/1Password/op-ssh-sign"
+    ssh.onepassword.enable = true
+    ssh.onepassword.sign.linux.path = "/opt/1Password/op-ssh-sign"
+    ssh.onepassword.sign.windows.path = "{{.chezmoi.homeDir }}/AppData/Local/1Password/app/8/op-ssh-sign.exe"
