@@ -64,13 +64,6 @@ winget install voidtools.Everything
 winget install WiresharkFoundation.Wireshark
 ```
 
-- Configure Git SSH access with the following command (do this as an
-  administrator):
-
-```pwsh
-setx /M GIT_SSH C:\Windows\System32\OpenSSH\ssh.exe
-```
-
 - Login to services.
 - Enable 1Password SSH agent.
 - Install Windows Subsystem for Linux with the following command and restart
