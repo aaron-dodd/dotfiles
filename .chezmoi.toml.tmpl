@@ -1,6 +1,6 @@
 {{- $defaultName := "Aaron Dodd" -}}
 {{- $defaultEmail := "me@aaronrdodd.com" -}}
-{{- $defaultGithubUsername := "aaron-dodd" }}
+{{- $defaultGithubUsername := "aaronrdodd" }}
 
 [data]
     work_device = {{ promptBool "Is this a work device" false | quote }}
@@ -10,17 +10,18 @@
     user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH+VPgzwtfVo/JEFBg97ngn7cqqPMUyVmuHKUJwyj0/+"
 
     git.github.username = {{ promptString "What is your GitHub username" $defaultGithubUsername | quote }}
-    git.sign.format = "ssh"
-    git.sign.commits = true
-    git.sign.tags = true
+    git.signing.format = "ssh"
+    git.signing.commits = true
+    git.signing.tags = true
 
     beyondcompare.enable = true
-    beyondcompare.windows.path = "c:/Program Files/Beyond Compare 5/bcomp.exe"
-
-    ssh.onepassword.enable = true
-    ssh.onepassword.sign.linux.path = "/opt/1Password/op-ssh-sign"
-    ssh.onepassword.sign.windows.path = "{{.chezmoi.homeDir }}/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+    beyondcompare.windows.path = "C:/Program Files/Beyond Compare 5/bcomp.exe"
 
     ssh.agent.enable = true
-    ssh.agent.windows.path = "C:/Windows/System32/OpenSSH/ssh.exe"
-    ssh.agent.wsl.path = "ssh.exe"
+
+    ssh.agent.provider.onepassword.enable = true
+    ssh.agent.provider.onepassword.signing.linux.path = "/opt/1Password/op-ssh-sign"
+    ssh.agent.provider.onepassword.signing.windows.path = "{{ .chezmoi.homeDir }}/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+
+    ssh.agent.service.windows.path = "C:/Windows/System32/OpenSSH/ssh.exe"
+    ssh.agent.service.wsl.path = "ssh.exe"

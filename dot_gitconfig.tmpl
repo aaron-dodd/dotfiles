@@ -55,17 +55,17 @@
     ui = auto
 
 [commit]
-    gpgSign = {{ .git.sign.commits }}
+    gpgSign = {{ .git.signing.commits }}
     verbose = true
 
 [core]
     attributesFile = "{{ .chezmoi.homeDir }}/.gitattributes"
     excludesFile = "{{ .chezmoi.homeDir }}/.gitignore"
 {{- if (and .ssh.agent.enable (eq .chezmoi.os "windows")) }}
-    sshCommand = "{{ .ssh.agent.windows.path }}"
+    sshCommand = "{{ .ssh.agent.service.windows.path }}"
 {{- end }}
 {{- if (and .ssh.agent.enable (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
-    sshCommand = "{{ .ssh.agent.wsl.path }}"
+    sshCommand = "{{ .ssh.agent.service.wsl.path }}"
 {{- end }}
 
 [diff]
@@ -101,19 +101,20 @@
     user = {{ .git.github.username }}
 
 [gpg]
-    format = {{ .git.sign.format }}
+    format = {{ .git.signing.format }}
 
-{{- if eq .git.sign.format "ssh" }}
-
+{{ if eq .git.signing.format "ssh" -}}
 [gpg "ssh"]
     allowedSignersFile = "{{ .chezmoi.homeDir }}/.config/git/allowed_signers"
 
-{{- if (and .ssh.onepassword.enable (eq .chezmoi.os "linux")) }}
-    program = "{{ .ssh.onepassword.sign.linux.path }}"
-{{- else if (and .ssh.onepassword.enable (eq .chezmoi.os "windows")) }}
-    program = "{{ .ssh.onepassword.sign.windows.path }}"
+{{- if (and .ssh.agent.provider.onepassword.enable (eq .chezmoi.os "linux")) }}
+    program = "{{ .ssh.agent.provider.onepassword.signing.linux.path }}"
 {{- end -}}
-{{- end }}
+
+{{ if (and .ssh.agent.provider.onepassword.enable (eq .chezmoi.os "windows")) }}
+    program = "{{ .ssh.agent.provider.onepassword.signing.windows.path }}"
+{{- end -}}
+{{ end }}
 
 [help]
     autocorrect = "prompt"
@@ -168,7 +169,7 @@
     enabled = true
 
 [tag]
-    gpgSign = {{ .git.sign.tags }}
+    gpgSign = {{ .git.signing.tags }}
     sort = version:refname
 
 [url "git@github.com:"]
